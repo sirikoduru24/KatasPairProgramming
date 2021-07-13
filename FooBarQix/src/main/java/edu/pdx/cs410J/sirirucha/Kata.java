@@ -15,9 +15,11 @@ public class Kata {
     } else if (args.length == 1) {
       if(validateGivenInput(args[0])) {
         String result = compute(args[0]);
-        if(result == "") {
-          System.out.println(args[0]);
+        if(!(result.contains("Foo") || result.contains("Bar") || result.contains("Qix"))) {
+          String newResult = args[0].replace("0","*");
+          System.out.println(newResult);
         } else {
+          String newResult = args[0].replace("0","*");
           System.out.println(result);
         }
       } else {
@@ -61,7 +63,11 @@ public class Kata {
       if(number.charAt(i) == '7') {
         result += "Qix";
       }
+      if(number.charAt(i) == '0') {
+        result += "*";
+      }
     }
+
     return result;
   }
 }
